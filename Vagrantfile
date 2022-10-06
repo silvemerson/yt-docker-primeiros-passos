@@ -4,7 +4,7 @@
 VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
 
 vms = {
-  'docker-host' => {'memory' => '3072', 'cpus' => 1, 'ip' => '10', 'box' => 'debian/buster64'}
+  'docker-host' => {'memory' => '3072', 'cpus' => 1, 'ip' => '10', 'box' => 'centos/7'}
 }
 
 Vagrant.configure('2') do |config|
@@ -20,8 +20,8 @@ Vagrant.configure('2') do |config|
         vb.memory = conf['memory']
         vb.cpus = conf['cpus']
    yt.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     apt-get upgrade -y
+     yum update -y
+
    SHELL
 
       end
